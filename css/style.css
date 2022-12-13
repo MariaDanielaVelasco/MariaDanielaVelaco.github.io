@@ -1,0 +1,1120 @@
+/* --------------- Fonts used : Poppins + Abril Fatface --------------- */
+@import url("https://fonts.googleapis.com/css2?family=Rubik&family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* --------------- Website Theme --------------- */
+
+:root {
+  --hue-1: 47;
+  --hue-2: 257;
+  --main-color-1: hsl(var(--hue-1), 100%, 61%);
+  --main-color-dark-1: hsl(44, 100%, 46%);
+  --main-color-2: hsl(var(--hue-2), 100%, 60%);
+  --main-color-dark-2: hsl(var(--hue-2), 69%, 50%);
+}
+
+body {
+  --bg-color: hsl(var(--hue-2), 100%, 97%);
+  --bg-color-1: hsl(var(--hue-2), 100%, 95.5%);
+  --bg-color-2: #fff;
+  --bg-color-3: hsl(var(--hue-2), 100%, 98%);
+  --bg-color-transparent: hsla(0, 0%, 100%, 0.6);
+  --heading-color: hsl(var(--hue-2), 61%, 24%);
+  --text-color: hsl(var(--hue-2), 17%, 63%);
+}
+
+body.dark {
+  --bg-color: hsl(var(--hue-2), 19%, 15%);
+  --bg-color-1: hsl(var(--hue-2), 21%, 11%);
+  --bg-color-2: hsl(var(--hue-2), 23%, 19%);
+  --bg-color-3: hsl(var(--hue-2), 23%, 24%);
+  --bg-color-transparent: hsla(var(--hue-2), 23%, 19%, 0.6);
+  --heading-color: hsl(var(--hue-2), 100%, 95%);
+  --text-color: hsl(var(--hue-2), 14%, 51%);
+}
+
+body.dark .toggle-btn{
+  background-color: var(--bg-color-3);
+}
+
+body.dark .toggle-btn:hover{
+  background-color: brightness(110%);
+}
+
+body.dark .nav-link:hover::after, 
+body.dark .nav-link.active::after{
+  opacity: 0.6;
+}
+
+body.dark .form-input:hover{
+  filter: brightness(110%);
+}
+
+/* --------------- General Styles --------------- */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  font-family: "Poppins", sans-serif;
+  transition: .3s background-color;
+}
+
+body.stopScrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+::selection {
+  background-color: var(--bg-color);
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --------------- Reusable CSS Code --------------- */
+.container{
+  position: relative;
+  width: 100%;
+  max-width: 65rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+.logo{
+  margin-right: 1.5rem;
+  font-family: "Rubik", sans-serif;
+  font-size: 1.5rem;
+  color: var(--heading-color);
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.logo span{
+  color: var(--main-color-1);
+}
+
+.heading{
+  color: var(--heading-color);
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: 0.5px;
+  border-left: 3px solid var(--main-color-1);
+  padding: 0.13rem 0.75rem;
+  margin-bottom:  1rem;
+  font-weight: 500;
+  transition: 0.3s color;
+}
+
+.subheading {
+  color: var(--heading-color);
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.3;
+  font-family: "Rubik", sans-serif;
+  margin-bottom: 2rem;
+  transition: 0.3s color;
+}
+
+.sub-heading span{
+  color: var(--main-color-dark-1);
+  text-transform: uppercase;
+}
+
+.text{
+  color: var(--text-color);
+  font-size: 1rem;
+  margin: 2rem 0;
+  transition: 0.3s color;
+}
+
+.cta{
+  margin-top: 3.5rem;
+  align-items: center;
+}
+
+.cta .btn{
+  margin-right: 1.5rem;
+}
+
+.btn{
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 17px;
+  padding: .8rem 1.25rem;
+  border-radius: 17px;
+  background: var(--main-color-1);
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: .4px;
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+
+.btn-new{
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 17px;
+  padding: .8rem 1.25rem;
+  border-radius: 17px;
+  background: var(--main-color-2);
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: .4px;
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+
+.btn:hover{
+  background-color:var(--main-color-dark-1);
+}
+
+.btn.secondary-btn{
+  position: relative;
+  background-color: transparent;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0px;
+  border-bottom: 2.5px solid var(--main-color-1);
+  border-radius: 0px;
+  padding: 0.5rem 0;
+}
+
+.btn.secondary-btn::before{
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2.5px;
+  bottom: -2.5px;
+  left: 0;
+  background-color: var(--main-color-2);
+  transition: 0.3s ease-in-out;
+}
+
+.btn.secondary-btn:hover::before{
+  width: 100%;
+}
+
+h3{
+  color: var(--heading-color);
+}
+
+section {
+  background-color: var(--bg-color);
+}
+
+
+/* --------------- Custom Scroll Bar CSS --------------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--main-color-1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-color-2);
+}
+
+/* --------------- Navbar Styling --------------- */
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  transition: 0.3s;
+  background-color: var(--bg-color-2);
+}
+
+header.sticky {
+  background-color: var(--bg-color-transparent);
+  box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+}
+
+nav.container{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header .logo{
+  height: 120px;
+  line-height: 120px;
+}
+
+header.sticky .logo{
+  height: 100px;
+  line-height: 100px;
+}
+
+.links{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links ul{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-link{
+  position: relative;
+  display: inline-block;
+  margin: 0 1rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+  font-weight: 500;
+  opacity: 0.9;
+  transition: 0.3s;
+}
+
+.nav-link::after{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--main-color-1);
+  bottom: 0;
+  left: -5px;
+  z-index: -1;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.nav-link:hover, 
+.nav-link.active{
+  color: var(--heading-color);
+}
+
+.nav-link:hover::after, 
+.nav-link.active::after{
+  width: 100%;
+  opacity: 0.2;
+}
+
+.toggle-btn{
+  color: var(--heading-color);
+  min-width: 40px;
+  height: 40px;
+  background-color: var(--bg-color-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.05);
+}
+
+.toggle-btn:hover{
+  filter: brightness(97%);
+}
+
+.hamburger{
+  padding: 1rem 0;
+  height: 12px;
+  width: 25px;
+  box-sizing: content-box;
+  cursor: pointer;
+  position: relative;
+  display: none;
+}
+
+.hamburger .bar{
+  width: 100%;
+  height: 2px;
+  background-color: var(--heading-color);
+  border-radius: 3px;
+  position: absolute;
+}
+
+.hamburger .bar:first-child{
+  top: 1rem;
+  transition: top 0.2s 0.15s, transform 0.3s;
+}
+
+.hamburger .bar:last-child{
+  bottom: 1rem;
+  transition: bottom 0.2s 0.15s, transform 0.3s;
+}
+
+body.open .hamburger .bar:first-child{
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+  transition: top 0.2s, transform 0.3s 0.1s;
+}
+
+body.open .hamburger .bar:last-child{
+  bottom: 50%;
+  transform: translateY(50%) rotate(45deg);
+  transition: bottom 0.2s, transform 0.3s 0.1s;
+}
+
+/* --------------- Home Styling --------------- */
+.home{
+  padding: 130px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.home #vanta-js{
+  background-attachment: fixed;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  height: 100%;
+  width: 100%;
+  max-height: fit-content;
+}
+
+.home .content{
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  max-height: 600px;
+}
+.home .content h2{
+  font-size: 2rem;
+  color: var(--heading-color);
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+  transition: 0.3s color;
+}
+
+.home .content h3{
+  font-size: 4rem;
+  color:var(--heading-color);
+  text-transform: uppercase;
+  font-family: "Rubik", sans-serif;
+  margin-bottom: 0.7rem;
+  transition: 0.3s color;
+}
+
+.home .content h3 span{
+  color: var(--main-color-dark-1);
+}
+
+.home .content p{
+  font-size: 3rem;
+  color: var(--heading-color);
+  margin-bottom: 0.7rem;
+  transition: 0.3s color;
+}
+
+.home .content p span{
+  color: var(--main-color-2);
+}
+
+
+/* --------------- About Section Styling --------------- */
+.about-area{
+  padding: 120px 0;
+  width: 100%;
+  background-color: var(--bg-color);
+}
+
+.about-area .container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 600px;
+  align-items: center;
+  gap: 3rem;
+}
+
+.about-info .heading {
+  margin-bottom: 0.7rem;
+  transition: 0.3s color;
+}
+
+.about-info .sub-heading{
+  font-size: 2.5rem;
+  color: var(--heading-color);
+  font-family: "Rubik", sans-serif;
+  margin-bottom: 0.9rem;
+  transition: 0.3s color;
+}
+
+.about-info .text{
+  margin: 0.8rem 0;
+  transition: 0.3s color;
+}
+
+.about-image{
+  position: relative;
+  width: 100%;
+  min-height: 65%;
+  background-image: linear-gradient(
+    124deg, 
+    var(--main-color-2) 53%, 
+    var(--main-color-1) 53%
+  );
+  border-radius: 60px;
+}
+
+.about-image .person{
+  position: absolute;
+  width: 95%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---------------  Education Styling --------------- */
+.education{
+  padding: 100px 0;
+  width: 100%;
+  background-color: var(--bg-color);
+}
+
+.education .heading {
+  margin-bottom: 0.7rem;
+  transition: 0.3s color;
+}
+
+.education-header .sub-heading{
+  font-size: 2.5rem;
+  color: var(--heading-color);
+  font-family: "Rubik", sans-serif;
+  margin-bottom: 2rem;
+  transition: 0.3s color;
+}
+
+.education-gallery{
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.school-card{
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #fff;
+  height: 265px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  text-align: center;
+}
+
+.school-image{
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.school-image img{
+  width: 70%;
+}
+
+.school-desc{
+  padding-bottom: 1rem;
+  justify-content: space-between;
+}
+
+.school-desc h3{
+  font-size: 1rem;
+  color: var(--main-color-dark-2);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.educ-overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  pointer-events: none;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.educ-overlay .educ-name{
+  padding: 1rem;
+  color: var(--heading-color);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.school-image:hover .educ-overlay{
+  pointer-events: auto;
+  background-color: var(--bg-color-transparent);
+  backdrop-filter: blur(10px);
+}
+
+.school-image:hover .educ-name{
+  opacity: 1;
+}
+
+/* --------------- Hobbies Section Styling --------------- */
+.hobbies{
+  padding: 120px 0;
+  width: 100%;
+  background-color: var(--bg-color);
+}
+
+.hobbies-header .sub-heading{
+  font-size: 2.5rem;
+  color: var(--heading-color);
+  font-family: "Rubik", sans-serif;
+  margin-bottom: 2rem;
+  transition: 0.3s color;
+}
+
+.hobbies-gallery{
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.hobbies-card{
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #fff;
+  height: 265px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  text-align: center;
+}
+
+.hobbies-image{
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.hobbies-image img{
+  width: 100%;
+}
+
+.hobbies-desc{
+  padding-bottom: 1rem;
+  justify-content: space-between;
+}
+
+.hobbies-desc h3{
+  font-size: 1.5rem;
+  color: var(--main-color-dark-2);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.hobbies-overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  pointer-events: none;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hobbies-overlay .hobbies-name{
+  padding: 1rem;
+  color: var(--heading-color);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.hobbies-image:hover .hobbies-overlay{
+  pointer-events: auto;
+  background-color: var(--bg-color-transparent);
+  backdrop-filter: blur(10px);
+}
+
+.hobbies-image:hover .hobbies-name{
+  opacity: 1;
+}
+
+/* --------------- Contact Section Styling --------------- */
+.contact{
+  padding: 100px 0;
+  width: 100%;
+  background-color: var(--bg-color);
+}
+
+.contact .container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 5rem; 
+}
+
+.contact-info .sub-heading{
+  font-size: 2.5rem;
+  color: var(--heading-color);
+  font-family: "Rubik", sans-serif;
+  margin-bottom: 0.9rem;
+  transition: 0.3s color;
+}
+
+.mail{
+  color: var(--main-color-2);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.mail i{
+  display: inline-block;
+  font-size: 1.5rem;
+  margin-left: 2px;
+  transform: translateY(3px);
+  transition: 0.3s margin-left;
+}
+
+.mail:hover{
+  color: var(--main-color-dark-2)
+}
+
+.mail:hover i{
+  margin-left: 10px;
+}
+
+.contact-form{
+  background: var(--bg-color-2);
+  border-radius: 20px;
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form h3{
+  color: var(--heading-color);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+  line-height: 0.9;
+}
+
+.form-input{
+  display: inline-block;
+  padding: .9rem 1.5rem;
+  background: var(--bg-color-3);
+  border: 2px solid var(--bg-color-3);
+  width: 100%;
+  border-radius: 17px;
+  font-family: inherit;
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--heading-color);
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-input::placeholder{
+  color: var(--text-color);
+}
+
+.form-input:hover{
+  filter: brightness(97%);
+}
+
+.form-input:valid,
+.form-input:focus{
+  filter: brightness(100%);
+  background: var(--bg-color-1);
+  border-color: var(--main-color-2);
+
+}
+
+textarea.form-input{
+  resize: none;
+  min-height: 170px;
+}
+
+.contact-form .form-input{
+  margin-bottom: 1.5rem;
+}
+
+/* --------------- Footer Styling --------------- */
+footer{
+  padding: 0;
+  background-color: var(--bg-color);
+}
+
+footer .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer .social-meadia{
+  display: flex;
+}
+
+.social-link{
+  width: 25px;
+  height:25px;
+  border-radius: 50%;
+  margin-left: 1rem;
+  background-color: var(--bg-color-1);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  transition: 0.3s color;
+}
+
+.social-link:hover{
+  color: var(--main-color-2);
+}
+/* --------------- 1000px Screens --------------- */
+
+@media (max-width: 1000px) {
+  .sub-heading {
+    font-size:0.75rm
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .logo{
+    font-size: 1.45rem;
+  }
+  
+  header .logo{
+    height: 100px;
+    line-height: 100px;
+  }
+
+  .home{
+    padding: 120px 0;
+  }
+
+  .home .content h2{
+    font-size: 1.75rem;
+  }
+
+  .home .content h3{
+    font-size: 3.75rem;
+  }
+
+  .home .content p{
+    font-size: 2.75rem;
+  }
+
+  .about-info .sub-heading{
+    font-size: 2.75rem;
+  }
+
+  .education-header .sub-heading{
+    font-size: 2.75rem;
+  }
+
+  .hobbies-header .sub-heading{
+    font-size: 2.75rem;
+  }
+
+  .contact-info .sub-heading{
+    font-size: 2.75rem;
+  }
+
+  .text {
+    font-size: .84rem;
+    margin: 1.3rem 0;
+  }
+
+  .btn, .btn_new{
+    padding: 0.8rem 1.23rem;
+    font-size: 0.8rem;
+    border-radius: 15px;
+    min-width: 100px;
+  }
+
+  .btn_secondarybutton{
+    font-size: 0.85rem;
+  }
+
+  .form-input{
+    padding: 0.8rem 1.45rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+  }
+
+  .nav-link {
+    font-size: .7rem;
+  }
+  
+  .about-area{
+    padding: 100px 0;
+  }
+
+  .about-area .container{
+    grid-template-columns: 1fr 400px;
+    max-height: 450px;
+    gap: 2rem;
+  }
+
+  .contact .container{
+    column-gap: 2rem; 
+  }
+
+  .contact-form{
+    padding: 2.5rem 2rem;
+  }
+
+  .contact-form h3{
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact .form-input{
+    margin-bottom: 0.8rem;;
+  }
+}
+
+
+/* --------------- 768px Screens --------------- */
+
+@media (max-width: 768px) {
+  :root{
+    --sectionpadding: 4.5rem
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .links {
+    order: 3;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0 2rem;
+  }
+
+  header nav{
+    justify-content: space-between;
+  }
+
+  .links ul{
+    position: relative;
+    flex-direction: column;
+  }
+
+  .nav-link{
+    margin: 1.5rem 0;
+    color: var(--heading-color);
+    font-weight: 500;
+  }
+
+  .toggle-btn{
+    margin: 0;
+  }
+
+  .links ul::after{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 0.5px;
+    background-color: var(--heading-color);
+    opacity: 0;
+    top: -0.5rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+  }
+
+  .overlay{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.07);
+    z-index: 6;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+  }
+
+  header{
+    height: 505px;
+    max-height: 100px;
+    overflow: hidden;
+  }
+
+  header.sticky{
+    height: 485px;
+    max-height: 100px;
+  }
+
+  body.open header{
+    max-height: 505px;
+    background-color: var(--bg-color-2);
+  }
+
+  body.open .overlay{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  body.open .links ul::after{
+    opacity: .7;
+    width: 100%;
+  }
+
+  body.open header.sticky{
+    max-height: 485px;
+  }
+
+  body.open .links{
+    opacity: 1;
+  }
+
+  .about-area .container{
+    grid-template-columns: 1fr;
+    height: revert;
+    row-gap: 2rem;
+    max-height: fit-content;
+  }
+
+  .about-area .about-image{
+    position: relative;
+    min-height: revert;
+    height: 100vw;
+    max-height: 350px;
+    max-width: 450px;
+    margin-top: 0px;
+    border-radius: 40px;
+  }
+
+  .about-area{
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .about-area .text{
+    margin: 0.2rem 0;
+  }
+
+  .cta{
+    margin-top: 1rem;
+  }
+
+  .contact .container{
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+  }
+}
+
+/* --------------- 500px Screens --------------- */
+
+@media (max-width: 500px) {
+  .container{
+    padding: 0 1rem;
+  }
+  .heading {
+    font-size: 2rem;
+  }
+
+  .home .content h3{
+    font-size: 3rem;
+  }
+
+  .home .content p{
+    font-size: 1.75rem;
+  }
+
+  .about-info .sub-heading{
+    font-size: 1.5rem;
+  }
+
+  .education-header .sub-heading{
+    font-size: 1.5rem;
+  }
+
+  .hobbies-header .sub-heading{
+    font-size: 1.5rem;
+  }
+
+  .contact-info .sub-heading{
+    font-size: 1.5rem;
+  }
+
+  .school-image img{
+    width: 50%;
+  }
+
+  .about-area .about-image{
+    position: relative;
+    min-height: revert;
+    height: 100vw;
+    max-height: 250px;
+    max-width: 450px;
+    margin-top: 0px;
+    border-radius: 40px;
+  }
+
+  .contact-form p{
+    font-size: 1.2rem;
+  }
+
+  footer{
+    padding: var(--sectionpadding) 0 1rem;
+  }
+
+  footer .text{
+    order: 3;
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+
+}
